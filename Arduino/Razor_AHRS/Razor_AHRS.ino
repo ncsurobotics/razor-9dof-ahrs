@@ -206,6 +206,13 @@ boolean output_errors = false;  // true or false
 // NOTE: When using this, OUTPUT__STARTUP_STREAM_ON has no effect!
 #define OUTPUT__HAS_RN_BLUETOOTH false  // true or false
 
+// Drift Correction
+// Selectively disables the magnetomer based yaw drift correction,
+// but keeps the accelerometer based pitch/roll drift detection active.
+// be sure to leave the DEBUG__NO_DRIFT_CORRECTION macro set to
+// *false*, as it will disable ALL drift correction if set to true.
+#define DISABLE_MAGN_BASED_DRIFT_CORRECTION true
+
 
 // SENSOR CALIBRATION
 /*****************************************************************/
@@ -231,15 +238,15 @@ boolean output_errors = false;  // true or false
 
 // Extended magn (on top shelf)
 // Uncomment to use extended magnetometer calibration (compensates hard & soft iron errors)
-#define CALIBRATION__MAGN_USE_EXTENDED true
-const float magn_ellipsoid_center[3] = {80.6548, -78.0988, -60.5789};
-const float magn_ellipsoid_transform[3][3] = {{0.944390, 0.0157782, 0.0185163}, {0.0157782, 0.914157, 0.0235859}, {0.0185163, 0.0235859, 0.983613}};
+//#define CALIBRATION__MAGN_USE_EXTENDED true
+//const float magn_ellipsoid_center[3] = {80.6548, -78.0988, -60.5789};
+//const float magn_ellipsoid_transform[3][3] = {{0.944390, 0.0157782, 0.0185163}, {0.0157782, 0.914157, 0.0235859}, {0.0185163, 0.0235859, 0.983613}};
 
 // Gyroscope
 // "gyro x,y,z (current/average) = .../OFFSET_X  .../OFFSET_Y  .../OFFSET_Z
-#define GYRO_AVERAGE_OFFSET_X ((float) 18.64)
-#define GYRO_AVERAGE_OFFSET_Y ((float) 72.80)
-#define GYRO_AVERAGE_OFFSET_Z ((float) -8.18)
+#define GYRO_AVERAGE_OFFSET_X ((float) 22.33)
+#define GYRO_AVERAGE_OFFSET_Y ((float) 73.96)
+#define GYRO_AVERAGE_OFFSET_Z ((float) -9.68)
 
 /*
 // Calibration example:
@@ -280,7 +287,7 @@ const float magn_ellipsoid_transform[3][3] = {{0.944390, 0.0157782, 0.0185163}, 
 // DEBUG OPTIONS
 /*****************************************************************/
 // When set to true, gyro drift correction will not be applied
-#define DEBUG__NO_DRIFT_CORRECTION true
+#define DEBUG__NO_DRIFT_CORRECTION False
 // Print elapsed time after each I/O loop
 #define DEBUG__PRINT_LOOP_TIME false
 
