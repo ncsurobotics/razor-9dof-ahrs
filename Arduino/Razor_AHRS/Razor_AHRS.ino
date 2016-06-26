@@ -207,11 +207,11 @@ boolean output_errors = false;  // true or false
 #define OUTPUT__HAS_RN_BLUETOOTH false  // true or false
 
 // Drift Correction
-// Selectively disables the magnetomer based yaw drift correction,
-// but keeps the accelerometer based pitch/roll drift detection active.
-// be sure to leave the DEBUG__NO_DRIFT_CORRECTION macro set to
-// *false*, as it will disable ALL drift correction if set to true.
-#define DISABLE_MAGN_BASED_DRIFT_CORRECTION true
+// Uncomment to selectively disable the magnetomer based yaw drift correction,
+// but keep the accelerometer based pitch/roll drift detection active.
+// be sure to leave the DEBUG__NO_DRIFT_CORRECTION macro (scroll down to find it) 
+// set to *false*, as it will disable *all* drift correction if set to true.
+#define DISABLE_MAGN_BASED_DRIFT_CORRECTION
 
 
 // SENSOR CALIBRATION
